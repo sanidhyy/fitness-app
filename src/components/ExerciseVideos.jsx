@@ -6,7 +6,7 @@ import Loader from "./Loader";
 const ExerciseVideos = ({ exerciseVideos, name }) => {
   if (!exerciseVideos.length) return <Loader />;
 
-  const noOfExercisesVideos = 3;
+  const noOfExercisesVideos = 6;
 
   return (
     <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
