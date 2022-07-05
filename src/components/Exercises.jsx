@@ -17,7 +17,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     indexOfLastExercise
   );
 
-  const paginate = (e, value) => {
+  const paginate = (_, value) => {
     setCurrentPage(value);
 
     window.scrollTo({ top: 1800, behavior: "smooth" });
@@ -43,6 +43,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     };
 
     fetchExercisesData();
+    // eslint-disable-next-line
   }, [bodyPart]);
 
   return (
@@ -66,7 +67,6 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
           <Pagination
             color="standard"
             shape="rounded"
-            defautPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}
             onChange={paginate}
