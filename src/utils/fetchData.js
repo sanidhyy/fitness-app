@@ -1,3 +1,4 @@
+// exercise api options
 export const exerciseOptions = {
   method: "GET",
   headers: {
@@ -6,6 +7,7 @@ export const exerciseOptions = {
   },
 };
 
+// youtube api options
 export const youtubeOptions = {
   method: "GET",
   headers: {
@@ -14,6 +16,7 @@ export const youtubeOptions = {
   },
 };
 
+// fetch data from api
 export const fetchData = async (url, options) => {
   const response = await fetch(url, options);
   const data = await response.json();

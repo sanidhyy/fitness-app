@@ -104,6 +104,8 @@ body {
   text-decoration: none;
 }
 
+/********** MEDIA QUERIES (MEDIUM DEVICES)  *************/
+
 @media screen and (max-width: 1200px) {
   .detail-image {
     width: 300px;
@@ -133,6 +135,7 @@ body {
   }
 }
 
+/********** MEDIA QUERIES (SMALL DEVICES)  *************/
 @media screen and (max-width: 400px) {
   .exercise-card {
     width: 280px;
