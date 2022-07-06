@@ -3,6 +3,7 @@ import { Stack, Typography } from "@mui/material";
 
 import Icon from "../assets/icons/gym.png";
 
+// Body Part
 const BodyPart = ({ item, setBodyPart, bodyPart }) => {
   return (
     <Stack
@@ -24,7 +25,10 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
         window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
       }}
     >
+      {/* Body Part Icon */}
       <img src={Icon} alt="dumbell" style={{ width: "40px", height: "40px" }} />
+
+      {/* Body Part Name */}
       <Typography
         fontSize="24px"
         fontWeight="bold"

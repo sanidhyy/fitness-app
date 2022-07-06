@@ -3,6 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import HeroBannerImage from "../assets/images/banner.png";
 
+// Hero Banner
 const HeroBanner = () => {
   return (
     <Box
@@ -10,6 +11,7 @@ const HeroBanner = () => {
       position="relative"
       p="20px"
     >
+      {/* Title */}
       <Typography color="#FF2625" fontWeight={600} fontSize="26px">
         Fitness Club
       </Typography>
@@ -22,10 +24,12 @@ const HeroBanner = () => {
         Sweat, Smile <br />
         And Repeat
       </Typography>
+      {/* Description */}
       <Typography fontSize="22px" fontFamily="Alegreya" lineHeight="35px">
         Check out the most effective exercises personalized to you
       </Typography>
       <Stack>
+        {/* Explore exercises */}
         <a
           href="#exercises"
           style={{
@@ -44,6 +48,7 @@ const HeroBanner = () => {
           Explore Exercises
         </a>
       </Stack>
+      {/* Heading */}
       <Typography
         fontWeight={600}
         color="#FF2625"
@@ -55,6 +60,7 @@ const HeroBanner = () => {
       >
         Exercise
       </Typography>
+      {/* Banner Image */}
       <img
         src={HeroBannerImage}
         alt="Hero Banner"

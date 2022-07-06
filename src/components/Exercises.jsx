@@ -5,24 +5,27 @@ import { Box, Stack, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
 
+// Exercises
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const exercisesPerPage = 9;
+  const exercisesPerPage = 9; // no of exercises to be shown per page
 
-  const indexOfLastExercise = currentPage * exercisesPerPage;
-  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  const indexOfLastExercise = currentPage * exercisesPerPage; // get last exercise
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage; // get first exercise
 
   const currentExercise = exercises.slice(
     indexOfFirstExercise,
     indexOfLastExercise
-  );
+  ); // current exercises list
 
+  // pagination
   const paginate = (_, value) => {
     setCurrentPage(value);
 
     window.scrollTo({ top: 1800, behavior: "smooth" });
   };
 
+  // fetch exercises
   useEffect(() => {
     const fetchExercisesData = async () => {
       let exercisesData = [];
@@ -46,6 +49,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     // eslint-disable-next-line
   }, [bodyPart]);
 
+  // No Results Found
   if (!currentExercise.length)
     return (
       <Stack id="exercises" alignItems="center" justifyContent="center">
@@ -57,9 +61,12 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
+      {/* Showing results */}
       <Typography variant="h3" mb="46px">
         Showing Results
       </Typography>
+
+      {/* current exercises */}
       <Stack
         direction="row"
         sx={{ gap: { lg: "110px", xs: "50px" } }}
@@ -71,6 +78,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         ))}
       </Stack>
 
+      {/* exercises pagination */}
       <Stack mt="100px" alignItems="center">
         {exercises.length > 9 && (
           <Pagination

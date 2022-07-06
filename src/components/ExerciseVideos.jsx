@@ -3,13 +3,17 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import Loader from "./Loader";
 
+// Exercises Videos
 const ExerciseVideos = ({ exerciseVideos, name }) => {
+  // Loader
   if (!exerciseVideos.length) return <Loader />;
 
+  // No of exercises videos
   const noOfExercisesVideos = 6;
 
   return (
     <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
+      {/* Title */}
       <Typography variant="h4" mb="33px">
         Watch{" "}
         <span style={{ color: "#FF2625", textTransform: "capitalize" }}>
@@ -26,6 +30,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
           gap: { lg: "10px", xs: "0" },
         }}
       >
+        {/* Exercises videos */}
         {exerciseVideos?.slice(0, noOfExercisesVideos).map((item, i) => (
           <a
             key={i}
@@ -34,14 +39,17 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
             target="_blank"
             rel="noreferrer"
           >
+            {/* thumbnail */}
             <img
               src={item?.video?.thumbnails[0].url}
               alt={item?.video?.title}
             />
             <Box>
+              {/* video title */}
               <Typography variant="h5" color="#000">
                 {item?.video?.title}
               </Typography>
+              {/* video channel name */}
               <Typography variant="h6" color="#000">
                 {item?.video?.channelName}
               </Typography>

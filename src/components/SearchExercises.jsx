@@ -4,10 +4,12 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { fetchData, exerciseOptions } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
+// Search Exercises
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
 
+  // fetch body parts
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData(
@@ -21,6 +23,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     fetchExercisesData();
   }, []);
 
+  // handle search
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
@@ -28,6 +31,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         exerciseOptions
       );
 
+      // searched exercises
       const searchedExercises = exercisesData.filter(
         (exercise) =>
           exercise.name.toLowerCase().includes(search) ||
@@ -36,14 +40,15 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           exercise.bodyPart.toLowerCase().includes(search)
       );
 
-      setSearch("");
-      setExercises(searchedExercises);
-      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+      setSearch(""); // empty search input
+      setExercises(searchedExercises); // set searched exercises
+      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" }); // scroll to searched results
     }
   };
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
+      {/* Heading */}
       <Typography
         fontWeight={700}
         sx={{ fontSize: { lg: "44px", xs: "30px" } }}
@@ -55,6 +60,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       </Typography>
 
       <Box position="relative" mb="72px">
+        {/* Search Input */}
         <TextField
           sx={{
             input: { fontWeight: "700", border: "none", borderRadius: "4px" },
@@ -75,6 +81,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           }}
         />
 
+        {/* Search Button */}
         <Button
           className="search-btn"
           sx={{
@@ -93,6 +100,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         </Button>
       </Box>
 
+      {/* Horizontal Scrollbar */}
       <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
         <HorizontalScrollbar
           data={bodyParts}
