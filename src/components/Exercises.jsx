@@ -48,7 +48,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   if (!currentExercise.length)
     return (
-      <Stack alignItems="center" justifyContent="center">
+      <Stack id="exercises" alignItems="center" justifyContent="center">
         <Typography variant="h4" mb="60px" mt="60px">
           No Results Found!
         </Typography>
