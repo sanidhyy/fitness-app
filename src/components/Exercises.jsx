@@ -46,6 +46,15 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     // eslint-disable-next-line
   }, [bodyPart]);
 
+  if (!currentExercise.length)
+    return (
+      <Stack alignItems="center" justifyContent="center">
+        <Typography variant="h4" mb="60px" mt="60px">
+          No Results Found!
+        </Typography>
+      </Stack>
+    );
+
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
       <Typography variant="h3" mb="46px">
