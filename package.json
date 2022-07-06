@@ -2,6 +2,7 @@
   "name": "fitness-app",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "author": "Sanidhya Kr. Verma",
   "description": "Best Fitness Excercise App using React JS",
   "keywords": [
