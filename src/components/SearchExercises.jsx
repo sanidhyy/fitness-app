@@ -38,6 +38,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
       setSearch("");
       setExercises(searchedExercises);
+      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
     }
   };
 
@@ -69,6 +70,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           autoComplete="off"
           autoCapitalize="off"
           autoCorrect="off"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSearch();
+          }}
         />
 
         <Button
