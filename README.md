@@ -40,6 +40,14 @@ REACT_APP_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 4. Once packages are installed, you can start this app using `npm start` or `yarn start`
 5. Now app is fully configured and you can start using this app :+1:
 
+### :raising_hand: Need Help?
+
+If you run into issues during installation or setup:
+
+- **GitHub Discussions** — [Open a Q&A discussion](https://github.com/sanidhyy/fitness-app/discussions/new?category=q-a) for setup and troubleshooting help.
+- **Email** — [sanidhyyy@gmail.com](mailto:sanidhyyy@gmail.com)
+- **Discord** — `sanidhyy`
+
 ## :camera: Screenshots:
 
 ![Mobile Responsive](https://user-images.githubusercontent.com/71302066/177491188-113d2f26-7284-44ed-bd96-6dd2dcf8a301.png "Mobile Responsive")
