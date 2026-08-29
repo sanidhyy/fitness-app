@@ -2,12 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Stack, Typography } from "@mui/material";
 
+import { getExerciseGifUrl } from "../utils/fetchData";
+
 // Exercise Card
 const ExerciseCard = ({ exercise }) => {
   return (
     <Link className="exercise-card" to={`/exercise/${exercise?.id}`}>
       {/* exercise gif */}
-      <img src={exercise?.gifUrl} alt={exercise?.name} loading="lazy" />
+      <img
+        src={getExerciseGifUrl(exercise?.id)}
+        alt={exercise?.name}
+        loading="lazy"
+      />
       <Stack direction="row">
         {/* body part */}
         <Button
