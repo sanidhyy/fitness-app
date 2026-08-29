@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import { exerciseOptions, youtubeOptions, fetchData } from "../utils/fetchData";
+import {
+  exerciseOptions,
+  youtubeOptions,
+  fetchData,
+  EXERCISE_DB_URL,
+  exerciseListUrl,
+} from "../utils/fetchData";
 import Detail from "../components/Detail";
 import ExerciseVideos from "../components/ExerciseVideos";
 import SimilarExercises from "../components/SimilarExercises";
@@ -17,13 +23,12 @@ const ExerciseDetail = () => {
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const exerciseDbUrl = "https://exercisedb.p.rapidapi.com";
       const youtubeSearchUrl =
         "https://youtube-search-and-download.p.rapidapi.com";
 
       // fetch exercises detail data
       const exerciseDetailData = await fetchData(
-        `${exerciseDbUrl}/exercises/exercise/${id}`,
+        `${EXERCISE_DB_URL}/exercises/exercise/${id}`,
         exerciseOptions
       );
       setExerciseDetail(exerciseDetailData);
@@ -33,21 +38,29 @@ const ExerciseDetail = () => {
         `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,
         youtubeOptions
       );
-      setExerciseVideos(exerciseVideosData?.contents);
+      setExerciseVideos(exerciseVideosData?.contents || []);
 
       // fetch target exercises data
       const targetMuscleExercisesData = await fetchData(
-        `${exerciseDbUrl}/exercises/target/${exerciseDetailData?.target}`,
+        exerciseListUrl(`/exercises/target/${exerciseDetailData?.target}`),
         exerciseOptions
       );
-      setTargetMuscleExercises(targetMuscleExercisesData);
+      setTargetMuscleExercises(
+        Array.isArray(targetMuscleExercisesData)
+          ? targetMuscleExercisesData
+          : []
+      );
 
       // fetch equipment exercises data
       const equipmentExercisesData = await fetchData(
-        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData?.equipment}`,
+        exerciseListUrl(
+          `/exercises/equipment/${exerciseDetailData?.equipment}`
+        ),
         exerciseOptions
       );
-      setEquipmentExercises(equipmentExercisesData);
+      setEquipmentExercises(
+        Array.isArray(equipmentExercisesData) ? equipmentExercisesData : []
+      );
     };
 
     fetchExercisesData();

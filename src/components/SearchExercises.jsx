@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 
-import { fetchData, exerciseOptions } from "../utils/fetchData";
+import {
+  fetchData,
+  exerciseOptions,
+  EXERCISE_DB_URL,
+  exerciseListUrl,
+} from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
 // Search Exercises
@@ -13,11 +18,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+        `${EXERCISE_DB_URL}/exercises/bodyPartList`,
         exerciseOptions
       );
 
-      setBodyParts(["all", ...bodyPartsData]);
+      setBodyParts([
+        "all",
+        ...(Array.isArray(bodyPartsData) ? bodyPartsData : []),
+      ]);
     };
 
     fetchExercisesData();
@@ -27,18 +35,20 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises",
+        exerciseListUrl("/exercises"),
         exerciseOptions
       );
 
       // searched exercises
-      const searchedExercises = exercisesData.filter(
-        (exercise) =>
-          exercise.name.toLowerCase().includes(search) ||
-          exercise.target.toLowerCase().includes(search) ||
-          exercise.equipment.toLowerCase().includes(search) ||
-          exercise.bodyPart.toLowerCase().includes(search)
-      );
+      const searchedExercises = Array.isArray(exercisesData)
+        ? exercisesData.filter(
+            (exercise) =>
+              exercise.name.toLowerCase().includes(search) ||
+              exercise.target.toLowerCase().includes(search) ||
+              exercise.equipment.toLowerCase().includes(search) ||
+              exercise.bodyPart.toLowerCase().includes(search)
+          )
+        : [];
 
       setSearch(""); // empty search input
       setExercises(searchedExercises); // set searched exercises

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import { Box, Stack, Typography } from "@mui/material";
 
-import { exerciseOptions, fetchData } from "../utils/fetchData";
+import { exerciseOptions, fetchData, exerciseListUrl } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
 
 // Exercises
@@ -13,10 +13,9 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const indexOfLastExercise = currentPage * exercisesPerPage; // get last exercise
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage; // get first exercise
 
-  const currentExercise = exercises.slice(
-    indexOfFirstExercise,
-    indexOfLastExercise
-  ); // current exercises list
+  const currentExercise = Array.isArray(exercises)
+    ? exercises.slice(indexOfFirstExercise, indexOfLastExercise)
+    : []; // current exercises list
 
   // pagination
   const paginate = (_, value) => {
@@ -32,17 +31,17 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
       if (bodyPart === "all") {
         exercisesData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises",
+          exerciseListUrl("/exercises"),
           exerciseOptions
         );
       } else {
         exercisesData = await fetchData(
-          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+          exerciseListUrl(`/exercises/bodyPart/${bodyPart}`),
           exerciseOptions
         );
       }
 
-      setExercises(exercisesData);
+      setExercises(Array.isArray(exercisesData) ? exercisesData : []);
     };
 
     fetchExercisesData();
