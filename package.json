@@ -2,22 +2,14 @@
   "name": "fitness-app",
   "version": "0.1.0",
   "private": true,
-  "license": "MIT",
-  "author": "Sanidhya Kr. Verma",
-  "description": "Best Fitness Exercise App using React, TypeScript, and Vite",
   "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
-  "keywords": [
-    "react",
-    "typescript",
-    "vite",
-    "fitness-app",
-    "material-ui",
-    "html",
-    "css"
-  ],
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -42,13 +34,17 @@
     "typescript-eslint": "^8.70.0",
     "vite": "^8.3.0"
   },
-  "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "lint": "eslint ."
-  },
+  "author": "Sanidhya Kr. Verma",
+  "description": "Best Fitness Exercise App using React, TypeScript, and Vite",
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "fitness-app",
+    "material-ui",
+    "html",
+    "css"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

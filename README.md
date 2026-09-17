@@ -1,6 +1,6 @@
 # Golds Gym - A Fitness Exercise App using React
 
-![A Fitness Exercise App using React JS](https://user-images.githubusercontent.com/71302066/177488360-1745acfe-7c3f-4418-a317-86a671b0adac.png "A Fitness Exercise App using React JS")
+![A Fitness Exercise App using React](https://user-images.githubusercontent.com/71302066/177488360-1745acfe-7c3f-4418-a317-86a671b0adac.png "A Fitness Exercise App using React")
 
 [![Ask Me Anything!](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/sanidhyy "Ask Me Anything!")
 [![GitHub license](https://img.shields.io/github/license/sanidhyy/fitness-app)](https://github.com/sanidhyy/fitness-app/blob/main/LICENSE.md "GitHub license")
@@ -13,22 +13,21 @@
 
 ## :warning: Before you start
 
-1. Make sure [Git](https://git-scm.com "Git") and [Node.js](https://nodejs.org "NodeJS") **20.19+ or 22.12+** are installed
-2. **pnpm** is better than npm. So use [pnpm](https://pnpm.io/installation "pnpm").
-3. Create `.env` file in root folder.
-4. Contents of `.env`
+1. Make sure [Git](https://git-scm.com "Git") and [Node.js](https://nodejs.org "NodeJS") are installed
+2. Create `.env` file in root folder.
+3. Contents of `.env`
 
 ```
 VITE_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-5. Create a [Rapid API](https://rapidapi.com/hub/ "Rapid API") account.
-6. Enable these two APIs for fetching exercises data: [API 1: ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/ "ExerciseDB") and [API 2: Youtube Search and Download](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download/ "Youtube Search and Download").
+4. Create a [Rapid API](https://rapidapi.com/hub/ "Rapid API") account.
+5. Enable these two APIs for fetching exercises data: [API 1: ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/ "ExerciseDB") and [API 2: Youtube Search and Download](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download/ "Youtube Search and Download").
 
 ![Copy API Key](https://user-images.githubusercontent.com/71302066/177490655-c1dddcdd-2ef7-431e-b760-3e54f52a65b1.png "Copy API Key")
 
-7. After enabling you can get your API Keys and paste them in `.env` file.
-8. You are ready to go :fire:
+6. After enabling you can get your API Keys and paste them in `.env` file.
+7. You are ready to go :fire:
 
    _NOTE:_ Never share these Keys publicaly.
 
@@ -36,8 +35,8 @@ VITE_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 1. Clone this **repository** to your local computer.
 2. Open **terminal** in root directory.
-3. Type and Run `pnpm install`.
-4. Once packages are installed, you can start this app using `pnpm start` or `pnpm dev`
+3. Type and Run `npm install` or `pnpm install`.
+4. Once packages are installed, you can start this app using `npm run dev` or `pnpm dev`
 5. Now app is fully configured and you can start using this app :+1:
 
 ### :raising_hand: Need Help?
@@ -93,22 +92,22 @@ You can also give this repository a star to show more people and they can use th
 
 In the project directory, you can run:
 
-### `pnpm dev` / `pnpm start`
+### `npm run dev` / `pnpm dev`
 
 Runs the app in development mode with Vite.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.
 
-### `pnpm lint`
+### `npm run lint` / `pnpm lint`
 
 Lints the project with ESLint.
 
-### `pnpm build`
+### `npm run build` / `pnpm build`
 
 Type-checks the app with TypeScript, then builds a production bundle to the `dist` folder.
 
-### `pnpm preview`
+### `npm run preview` / `pnpm preview`
 
 Serves the production build locally so you can verify it before deploy.
 
