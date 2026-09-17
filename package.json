@@ -23,7 +23,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/material": "^6.5.0",
+    "@mui/material": "^7.3.11",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-horizontal-scrolling-menu": "^2.7.1",
