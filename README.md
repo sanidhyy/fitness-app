@@ -26,9 +26,8 @@ RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ![Copy API Key](https://user-images.githubusercontent.com/71302066/177490655-c1dddcdd-2ef7-431e-b760-3e54f52a65b1.png "Copy API Key")
 
-6. After enabling you can get your API key and paste it in `.env`. Do **not** use a `VITE_` prefix — Netlify Functions keep `RAPID_API_KEY` on the server so it is not exposed to the browser.
-7. For production, set `RAPID_API_KEY` in the Netlify dashboard under **Site configuration → Environment variables**. If an old `VITE_RAPID_API_KEY` variable exists, delete it after deploying so it cannot leak into a client build.
-8. You are ready to go :fire:
+6. After enabling you can get your API key and paste it in `.env`.
+7. You are ready to go :fire:
 
    _NOTE:_ Never share these keys publicly.
 

@@ -1,7 +1,7 @@
 allowBuilds:
   core-js: false
   core-js-pure: false
-  esbuild: true
-  netlify-cli: true
+  esbuild: false
+  netlify-cli: false
   sharp: false
   unix-dgram: false
