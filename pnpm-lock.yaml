@@ -27,8 +27,8 @@ importers:
         specifier: ^8.3.2
         version: 8.3.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react-loader-spinner:
-        specifier: ^6.0.0-0
-        version: 6.1.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: ^8.0.2
+        version: 8.0.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react-router:
         specifier: ^7.18.4
         version: 7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -1084,18 +1084,15 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  react-is@18.3.1:
-    resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
-
   react-is@19.2.8:
     resolution: {integrity: sha512-s5un28nYxKJw5gvUHyW5PCC28CvBqLu9r3cWgzHT4Vo/5fqqkFcdRYsGcKf50WMPpjjFZS5d76fn3YCo2njKwQ==}
 
-  react-loader-spinner@6.1.6:
-    resolution: {integrity: sha512-x5h1Jcit7Qn03MuKlrWcMG9o12cp9SNDVHVJTNRi9TgtGPKcjKiXkou4NRfLAtXaFB3+Z8yZsVzONmPzhv2ErA==}
+  react-loader-spinner@8.0.2:
+    resolution: {integrity: sha512-N2gHEy88VKRaijzEFoRp/aHEPE6Lr6upkmPBPu9hfqZqdxftxsXd1B+lzOmVnn3BYHyXwvYrifWzMbR64lwQlw==}
     engines: {node: '>= 12'}
     peerDependencies:
-      react: ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react: '>=17.0.0 <20.0.0'
+      react-dom: '>=17.0.0 <20.0.0'
 
   react-router@7.18.4:
     resolution: {integrity: sha512-PUPQcMhMGRAslLcvtlPz/kmzBEWPhLdgLFrL7pLNepBL6dX0lWj4WD2cUYVgYCuT3jxvghYFg81cDTj44DhetQ==}
@@ -1209,6 +1206,9 @@ packages:
     resolution: {integrity: sha512-bWnjSNscmuI+GJze6ZupnHP8G/cTcsJF+bXCeQknk2SHQsgbNJnLrqiH9jZ2W4STPVXH2mDKKRX3iwPhc9Cn/Q==}
     engines: {node: '>=10'}
     hasBin: true
+
+  tinycolor2@1.6.0:
+    resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==}
 
   tinyglobby@0.2.17:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
@@ -2308,16 +2308,14 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-is@18.3.1: {}
-
   react-is@19.2.8: {}
 
-  react-loader-spinner@6.1.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  react-loader-spinner@8.0.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
-      react-is: 18.3.1
       styled-components: 6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      tinycolor2: 1.6.0
     transitivePeerDependencies:
       - css-to-react-native
       - react-native
@@ -2433,6 +2431,8 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
     optional: true
+
+  tinycolor2@1.6.0: {}
 
   tinyglobby@0.2.17:
     dependencies:

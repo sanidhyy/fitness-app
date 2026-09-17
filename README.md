@@ -1,4 +1,4 @@
-# Golds Gym - A Fitness Exercise App using React JS
+# Golds Gym - A Fitness Exercise App using React
 
 ![A Fitness Exercise App using React JS](https://user-images.githubusercontent.com/71302066/177488360-1745acfe-7c3f-4418-a317-86a671b0adac.png "A Fitness Exercise App using React JS")
 
@@ -13,7 +13,7 @@
 
 ## :warning: Before you start
 
-1. Make sure [Git](https://git-scm.com "Git") and [NodeJS](https://nodejs.org "NodeJS") are installed
+1. Make sure [Git](https://git-scm.com "Git") and [Node.js](https://nodejs.org "NodeJS") **20.19+ or 22.12+** are installed
 2. **pnpm** is better than npm. So use [pnpm](https://pnpm.io/installation "pnpm").
 3. Create `.env` file in root folder.
 4. Contents of `.env`
@@ -22,7 +22,7 @@
 VITE_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-5. Create a [Rapid API](rapidapi.com/hub/ "Rapid API") account.
+5. Create a [Rapid API](https://rapidapi.com/hub/ "Rapid API") account.
 6. Enable these two APIs for fetching exercises data: [API 1: ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/ "ExerciseDB") and [API 2: Youtube Search and Download](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download/ "Youtube Search and Download").
 
 ![Copy API Key](https://user-images.githubusercontent.com/71302066/177490655-c1dddcdd-2ef7-431e-b760-3e54f52a65b1.png "Copy API Key")
@@ -36,8 +36,8 @@ VITE_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 1. Clone this **repository** to your local computer.
 2. Open **terminal** in root directory.
-3. Type and Run `npm install` or `pnpm install`.
-4. Once packages are installed, you can start this app using `npm start` or `pnpm start`
+3. Type and Run `pnpm install`.
+4. Once packages are installed, you can start this app using `pnpm start` or `pnpm dev`
 5. Now app is fully configured and you can start using this app :+1:
 
 ### :raising_hand: Need Help?
@@ -58,11 +58,13 @@ If you run into issues during installation or setup:
 
 ## :gear: Built with
 
-[<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" width="150" height="40" />](https://www.javascript.com/ "JavaScript")
+[<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" width="150" height="40" />](https://www.typescriptlang.org/ "TypeScript")
 
-[<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" width="150" />](https://reactjs.org/ "React JS")
+[<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" width="150" />](https://react.dev/ "React")
 
-[<img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" width="150" />](https://mui.com// "Material UI")
+[<img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" width="150" />](https://vite.dev/ "Vite")
+
+[<img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" width="150" />](https://mui.com/ "Material UI")
 
 [<img src="http://ForTheBadge.com/images/badges/built-with-love.svg" alt="Built with Love">](https://github.com/sanidhyy "Built with Love")
 
@@ -91,65 +93,28 @@ You can also give this repository a star to show more people and they can use th
 
 In the project directory, you can run:
 
-### `pnpm start`
+### `pnpm dev` / `pnpm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode with Vite.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The page will reload when you make changes.
 
-### `pnpm test`
+### `pnpm lint`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lints the project with ESLint.
 
 ### `pnpm build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Type-checks the app with TypeScript, then builds a production bundle to the `dist` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `pnpm preview`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `pnpm eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Serves the production build locally so you can verify it before deploy.
 
 ## :page_with_curl: Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `pnpm build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Vite](https://vite.dev/guide/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Material UI](https://mui.com/material-ui/getting-started/)
