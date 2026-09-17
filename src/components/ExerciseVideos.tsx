@@ -1,18 +1,20 @@
 import { Box, Stack, Typography } from "@mui/material";
 
 import Loader from "./Loader";
+import type { YoutubeVideo } from "../types/exercise";
 
-// Exercises Videos
-const ExerciseVideos = ({ exerciseVideos, name }) => {
-  // Loader
+type ExerciseVideosProps = {
+  exerciseVideos: YoutubeVideo[];
+  name: string;
+};
+
+const ExerciseVideos = ({ exerciseVideos, name }: ExerciseVideosProps) => {
   if (!exerciseVideos.length) return <Loader />;
 
-  // No of exercises videos
   const noOfExercisesVideos = 6;
 
   return (
     <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
-      {/* Title */}
       <Typography variant="h4" mb="33px">
         Watch{" "}
         <span style={{ color: "#FF2625", textTransform: "capitalize" }}>
@@ -29,28 +31,24 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
           gap: { lg: "10px", xs: "0" },
         }}
       >
-        {/* Exercises videos */}
-        {exerciseVideos?.slice(0, noOfExercisesVideos).map((item, i) => (
+        {exerciseVideos.slice(0, noOfExercisesVideos).map((item, i) => (
           <a
-            key={i}
+            key={item.video?.videoId ?? i}
             className="exercise-video"
-            href={`https://youtube.com/watch?v=${item?.video?.videoId}`}
+            href={`https://youtube.com/watch?v=${item.video?.videoId ?? ""}`}
             target="_blank"
             rel="noreferrer"
           >
-            {/* thumbnail */}
             <img
-              src={item?.video?.thumbnails[0].url}
-              alt={item?.video?.title}
+              src={item.video?.thumbnails?.[0]?.url}
+              alt={item.video?.title}
             />
             <Box>
-              {/* video title */}
               <Typography variant="h5" color="#000">
-                {item?.video?.title}
+                {item.video?.title}
               </Typography>
-              {/* video channel name */}
               <Typography variant="h6" color="#000">
-                {item?.video?.channelName}
+                {item.video?.channelName}
               </Typography>
             </Box>
           </a>

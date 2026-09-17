@@ -2,19 +2,21 @@ import { Link } from "react-router-dom";
 import { Button, Stack, Typography } from "@mui/material";
 
 import { getExerciseGifUrl } from "../utils/fetchData";
+import type { Exercise } from "../types/exercise";
 
-// Exercise Card
-const ExerciseCard = ({ exercise }) => {
+type ExerciseCardProps = {
+  exercise: Exercise;
+};
+
+const ExerciseCard = ({ exercise }: ExerciseCardProps) => {
   return (
-    <Link className="exercise-card" to={`/exercise/${exercise?.id}`}>
-      {/* exercise gif */}
+    <Link className="exercise-card" to={`/exercise/${exercise.id}`}>
       <img
-        src={getExerciseGifUrl(exercise?.id)}
-        alt={exercise?.name}
+        src={getExerciseGifUrl(exercise.id)}
+        alt={exercise.name}
         loading="lazy"
       />
       <Stack direction="row">
-        {/* body part */}
         <Button
           sx={{
             ml: "21px",
@@ -25,10 +27,9 @@ const ExerciseCard = ({ exercise }) => {
             textTransform: "capitalize",
           }}
         >
-          {exercise?.bodyPart}
+          {exercise.bodyPart}
         </Button>
 
-        {/* target */}
         <Button
           sx={{
             ml: "21px",
@@ -39,11 +40,10 @@ const ExerciseCard = ({ exercise }) => {
             textTransform: "capitalize",
           }}
         >
-          {exercise?.target}
+          {exercise.target}
         </Button>
       </Stack>
 
-      {/* exercise name */}
       <Typography
         ml="21px"
         color="#000"
@@ -53,7 +53,7 @@ const ExerciseCard = ({ exercise }) => {
         textTransform="capitalize"
         fontSize="20px"
       >
-        {exercise?.name}
+        {exercise.name}
       </Typography>
     </Link>
   );

@@ -1,45 +1,50 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 
 import {
-  fetchData,
-  exerciseOptions,
   EXERCISE_DB_URL,
   exerciseListUrl,
+  exerciseOptions,
+  fetchData,
 } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
+import type { Exercise } from "../types/exercise";
 
-// Search Exercises
-const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
+type SearchExercisesProps = {
+  setExercises: Dispatch<SetStateAction<Exercise[]>>;
+  bodyPart: string;
+  setBodyPart: Dispatch<SetStateAction<string>>;
+};
+
+const SearchExercises = ({
+  setExercises,
+  bodyPart,
+  setBodyPart,
+}: SearchExercisesProps) => {
   const [search, setSearch] = useState("");
-  const [bodyParts, setBodyParts] = useState([]);
+  const [bodyParts, setBodyParts] = useState<string[]>([]);
 
-  // fetch body parts
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData(
+      const bodyPartsData = await fetchData<string[]>(
         `${EXERCISE_DB_URL}/exercises/bodyPartList`,
         exerciseOptions
       );
 
-      setBodyParts([
-        "all",
-        ...(Array.isArray(bodyPartsData) ? bodyPartsData : []),
-      ]);
+      setBodyParts(["all", ...(Array.isArray(bodyPartsData) ? bodyPartsData : [])]);
     };
 
-    fetchExercisesData();
+    void fetchExercisesData();
   }, []);
 
-  // handle search
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = await fetchData(
+      const exercisesData = await fetchData<Exercise[]>(
         exerciseListUrl("/exercises"),
         exerciseOptions
       );
 
-      // searched exercises
       const searchedExercises = Array.isArray(exercisesData)
         ? exercisesData.filter(
             (exercise) =>
@@ -50,15 +55,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           )
         : [];
 
-      setSearch(""); // empty search input
-      setExercises(searchedExercises); // set searched exercises
-      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" }); // scroll to searched results
+      setSearch("");
+      setExercises(searchedExercises);
+      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
     }
   };
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
-      {/* Heading */}
       <Typography
         fontWeight={700}
         sx={{ fontSize: { lg: "44px", xs: "30px" } }}
@@ -70,15 +74,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       </Typography>
 
       <Box position="relative" mb="72px">
-        {/* Search Input */}
         <TextField
           sx={{
             input: { fontWeight: "700", border: "none", borderRadius: "4px" },
             width: { lg: "800px", xs: "350px" },
             backgroundColor: "#fff",
             borderRadius: "40px",
+            height: "76px",
           }}
-          height="76px"
           value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder="Search Exercises"
@@ -87,11 +90,10 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           autoCapitalize="off"
           autoCorrect="off"
           onKeyDown={(e) => {
-            if (e.key === "Enter") handleSearch();
+            if (e.key === "Enter") void handleSearch();
           }}
         />
 
-        {/* Search Button */}
         <Button
           className="search-btn"
           sx={{
@@ -104,13 +106,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             position: "absolute",
             right: "0",
           }}
-          onClick={handleSearch}
+          onClick={() => {
+            void handleSearch();
+          }}
         >
           Search
         </Button>
       </Box>
 
-      {/* Horizontal Scrollbar */}
       <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
         <HorizontalScrollbar
           data={bodyParts}

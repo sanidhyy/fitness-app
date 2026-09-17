@@ -3,20 +3,17 @@ import { Stack } from "@mui/material";
 
 import Logo from "../assets/images/Logo.png";
 
-// Navbar
 const Navbar = () => {
   return (
     <Stack
       direction="row"
-      justify-content="space-around"
       sx={{
         gap: { sm: "122px", xs: "40px" },
         mt: { sm: "32px", xs: "20px" },
         justifyContent: "none",
+        px: "20px",
       }}
-      px="20px"
     >
-      {/* Brand Logo */}
       <Link to="/">
         <img
           src={Logo}
@@ -25,9 +22,7 @@ const Navbar = () => {
         />
       </Link>
 
-      {/* Navbar Links */}
       <Stack direction="row" gap="40px" fontSize="24px" alignItems="flex-end">
-        {/* Home */}
         <Link
           to="/"
           style={{
@@ -38,7 +33,6 @@ const Navbar = () => {
         >
           Home
         </Link>
-        {/* Exercises */}
         <a
           href="/#exercises"
           style={{ textDecoration: "none", color: "#3A1212" }}

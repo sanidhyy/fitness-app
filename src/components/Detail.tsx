@@ -4,12 +4,15 @@ import BodyPartImage from "../assets/icons/body-part.png";
 import TargetImage from "../assets/icons/target.png";
 import EquipmentImage from "../assets/icons/equipment.png";
 import { getExerciseGifUrl } from "../utils/fetchData";
+import type { Exercise } from "../types/exercise";
 
-// Detail
-const Detail = ({ exerciseDetail }) => {
+type DetailProps = {
+  exerciseDetail: Exercise;
+};
+
+const Detail = ({ exerciseDetail }: DetailProps) => {
   const { bodyPart, id, name, target, equipment } = exerciseDetail;
 
-  // extra detail
   const extraDetail = [
     {
       icon: BodyPartImage,
@@ -30,7 +33,6 @@ const Detail = ({ exerciseDetail }) => {
       gap="60px"
       sx={{ flexDirection: { lg: "row" }, p: "20px", alignItems: "center" }}
     >
-      {/* exercise gif */}
       <img
         src={getExerciseGifUrl(id)}
         alt={name}
@@ -38,11 +40,9 @@ const Detail = ({ exerciseDetail }) => {
         className="detail-image"
       />
       <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
-        {/* exercise name */}
         <Typography variant="h3" textTransform="capitalize">
           {name}
         </Typography>
-        {/* exercise description */}
         <Typography variant="h6">
           Exercises keep you strong.{" "}
           <span style={{ fontWeight: "bold", textTransform: "capitalize" }}>
@@ -55,9 +55,8 @@ const Detail = ({ exerciseDetail }) => {
           . It will help you improve your mood and gain energy.
         </Typography>
 
-        {/* extra detail */}
-        {extraDetail.map((item, i) => (
-          <Stack key={i} direction="row" gap="24px" alignItems="center">
+        {extraDetail.map((item) => (
+          <Stack key={item.name} direction="row" gap="24px" alignItems="center">
             <Button
               sx={{
                 background: "#FF2DB",
@@ -66,14 +65,12 @@ const Detail = ({ exerciseDetail }) => {
                 height: "100px",
               }}
             >
-              {/* detail icon */}
               <img
                 src={item.icon}
                 alt={bodyPart}
                 style={{ width: "50px", height: "50px" }}
               />
             </Button>
-            {/* detail */}
             <Typography variant="h5" textTransform="capitalize">
               {item.name}
             </Typography>

@@ -1,36 +1,44 @@
 import { useEffect, useState } from "react";
+import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import Pagination from "@mui/material/Pagination";
 import { Box, Stack, Typography } from "@mui/material";
 
-import { exerciseOptions, fetchData, exerciseListUrl } from "../utils/fetchData";
+import { exerciseListUrl, exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
+import type { Exercise } from "../types/exercise";
 
-// Exercises
-const Exercises = ({ exercises, setExercises, bodyPart }) => {
+type ExercisesProps = {
+  exercises: Exercise[];
+  setExercises: Dispatch<SetStateAction<Exercise[]>>;
+  bodyPart: string;
+};
+
+const Exercises = ({ exercises, setExercises, bodyPart }: ExercisesProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const exercisesPerPage = 9; // no of exercises to be shown per page
+  const exercisesPerPage = 9;
 
-  const indexOfLastExercise = currentPage * exercisesPerPage; // get last exercise
-  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage; // get first exercise
+  const indexOfLastExercise = currentPage * exercisesPerPage;
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
 
-  const currentExercise = Array.isArray(exercises)
-    ? exercises.slice(indexOfFirstExercise, indexOfLastExercise)
-    : []; // current exercises list
+  const currentExercise = exercises.slice(
+    indexOfFirstExercise,
+    indexOfLastExercise
+  );
 
-  // pagination
-  const paginate = (_, value) => {
+  const paginate = (_: ChangeEvent<unknown>, value: number) => {
     setCurrentPage(value);
-
     window.scrollTo({ top: 1800, behavior: "smooth" });
   };
 
-  // fetch exercises
   useEffect(() => {
     const fetchExercisesData = async () => {
       const exercisesData =
         bodyPart === "all"
-          ? await fetchData(exerciseListUrl("/exercises"), exerciseOptions)
-          : await fetchData(
+          ? await fetchData<Exercise[]>(
+              exerciseListUrl("/exercises"),
+              exerciseOptions
+            )
+          : await fetchData<Exercise[]>(
               exerciseListUrl(`/exercises/bodyPart/${bodyPart}`),
               exerciseOptions
             );
@@ -38,11 +46,9 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       setExercises(Array.isArray(exercisesData) ? exercisesData : []);
     };
 
-    fetchExercisesData();
-    // eslint-disable-next-line
-  }, [bodyPart]);
+    void fetchExercisesData();
+  }, [bodyPart, setExercises]);
 
-  // No Results Found
   if (!currentExercise.length)
     return (
       <Stack id="exercises" alignItems="center" justifyContent="center">
@@ -54,24 +60,21 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
-      {/* Showing results */}
       <Typography variant="h3" mb="46px">
         Showing Results
       </Typography>
 
-      {/* current exercises */}
       <Stack
         direction="row"
         sx={{ gap: { lg: "110px", xs: "50px" } }}
         flexWrap="wrap"
         justifyContent="center"
       >
-        {currentExercise.map((exercise, index) => (
-          <ExerciseCard key={index} exercise={exercise} />
+        {currentExercise.map((exercise) => (
+          <ExerciseCard key={exercise.id} exercise={exercise} />
         ))}
       </Stack>
 
-      {/* exercises pagination */}
       <Stack mt="100px" alignItems="center">
         {exercises.length > 9 && (
           <Pagination

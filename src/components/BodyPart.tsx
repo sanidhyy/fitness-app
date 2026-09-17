@@ -1,12 +1,17 @@
+import type { Dispatch, SetStateAction } from "react";
 import { Stack, Typography } from "@mui/material";
 
 import Icon from "../assets/icons/gym.png";
 
-// Body Part
-const BodyPart = ({ item, setBodyPart, bodyPart }) => {
+type BodyPartProps = {
+  item: string;
+  setBodyPart: Dispatch<SetStateAction<string>>;
+  bodyPart: string;
+};
+
+const BodyPart = ({ item, setBodyPart, bodyPart }: BodyPartProps) => {
   return (
     <Stack
-      type="button"
       alignItems="center"
       justifyContent="center"
       className="bodyPart-card"
@@ -24,10 +29,8 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
         window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
       }}
     >
-      {/* Body Part Icon */}
       <img src={Icon} alt="dumbell" style={{ width: "40px", height: "40px" }} />
 
-      {/* Body Part Name */}
       <Typography
         fontSize="24px"
         fontWeight="bold"
