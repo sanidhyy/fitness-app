@@ -24,8 +24,8 @@ importers:
         specifier: ^19.3.0
         version: 19.3.0(react@19.3.0)
       react-horizontal-scrolling-menu:
-        specifier: ^2.7.1
-        version: 2.8.2(react@19.3.0)
+        specifier: ^8.3.2
+        version: 8.3.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react-loader-spinner:
         specifier: ^6.0.0-0
         version: 6.1.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -636,8 +636,8 @@ packages:
   commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
 
-  compute-scroll-into-view@1.0.20:
-    resolution: {integrity: sha512-UCB0ioiyj8CRjtrvaceBLqqhZCVP+1B8+NWQhmdsm0VXOJtobBCf1dBQmebCCo34qZmUwZfIH2MZLqNHazrfjg==}
+  compute-scroll-into-view@3.1.1:
+    resolution: {integrity: sha512-VRhuHOLoKYOy4UbilLbUzbYg93XLjv2PncJC50EuTWPA3gaja1UjBsUP/D/9/juV3vQFr6XBEzn9KCAHdUvOHw==}
 
   convert-source-map@1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
@@ -1075,10 +1075,11 @@ packages:
     peerDependencies:
       react: ^19.3.0
 
-  react-horizontal-scrolling-menu@2.8.2:
-    resolution: {integrity: sha512-OmCQDONx/4TnyxQr+RoxP7AwSPQxdQGkFnWuCknF3s2pySNAogL4AB1LQv6bUrXIwFMXdrJBqxFeq3tZ24J7/w==}
+  react-horizontal-scrolling-menu@8.3.2:
+    resolution: {integrity: sha512-oqG5PUfCeO/1yk325VJUpXtjP8RmOGkNofM6PBzpFleEuPq63c9ggnBqPm4KgqvcLBvcI+vabDPUvpPXrKtp8Q==}
     peerDependencies:
       react: '>=16.8'
+      react-dom: '>=16.8'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -1133,8 +1134,8 @@ packages:
   scheduler@0.28.0:
     resolution: {integrity: sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw==}
 
-  scroll-into-view-if-needed@2.2.31:
-    resolution: {integrity: sha512-dGCXy99wZQivjmjIqihaBQNjryrz5rueJY7eHfTdyWEiR4ttYpsajb14rn9s5d4DY4EcY6+4+U/maARBXJedkA==}
+  scroll-into-view-if-needed@3.1.0:
+    resolution: {integrity: sha512-49oNpRjWRvnU8NyGVmUaYG4jtTkNonFZI86MmGRDqBphEK2EXT9gdEUoQPZhuBM8yWHxCWbobltqYO5M4XrUvQ==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -1156,8 +1157,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  smooth-scroll-into-view-if-needed@1.1.33:
-    resolution: {integrity: sha512-crS8NfAaoPrtVYOCMSAnO2vHRgUp22NiiDgEQ7YiaAy5xe2jmR19Jm+QdL8+97gO8ENd7PUyQIAQojJyIiyRHw==}
+  smooth-scroll-into-view-if-needed@2.0.2:
+    resolution: {integrity: sha512-z54WzUSlM+xHHvJu3lMIsh+1d1kA4vaakcAtQvqzeGJ5Ffau7EKjpRrMHh1/OBo5zyU2h30ZYEt77vWmPHqg7Q==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -1908,7 +1909,7 @@ snapshots:
   commander@2.20.3:
     optional: true
 
-  compute-scroll-into-view@1.0.20: {}
+  compute-scroll-into-view@3.1.1: {}
 
   convert-source-map@1.9.0: {}
 
@@ -2298,10 +2299,12 @@ snapshots:
       react: 19.3.0
       scheduler: 0.28.0
 
-  react-horizontal-scrolling-menu@2.8.2(react@19.3.0):
+  react-horizontal-scrolling-menu@8.3.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       react: 19.3.0
-      smooth-scroll-into-view-if-needed: 1.1.33
+      react-dom: 19.3.0(react@19.3.0)
+      scroll-into-view-if-needed: 3.1.0
+      smooth-scroll-into-view-if-needed: 2.0.2
 
   react-is@16.13.1: {}
 
@@ -2370,9 +2373,9 @@ snapshots:
 
   scheduler@0.28.0: {}
 
-  scroll-into-view-if-needed@2.2.31:
+  scroll-into-view-if-needed@3.1.0:
     dependencies:
-      compute-scroll-into-view: 1.0.20
+      compute-scroll-into-view: 3.1.1
 
   semver@6.3.1: {}
 
@@ -2386,9 +2389,9 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  smooth-scroll-into-view-if-needed@1.1.33:
+  smooth-scroll-into-view-if-needed@2.0.2:
     dependencies:
-      scroll-into-view-if-needed: 2.2.31
+      scroll-into-view-if-needed: 3.1.0
 
   source-map-js@1.2.1: {}
 
