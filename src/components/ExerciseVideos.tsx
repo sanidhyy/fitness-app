@@ -14,8 +14,14 @@ const ExerciseVideos = ({ exerciseVideos, name }: ExerciseVideosProps) => {
   const noOfExercisesVideos = 6;
 
   return (
-    <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
-      <Typography variant="h4" mb="33px">
+    <Box
+      sx={{
+        p: "20px",
+        marginTop: { lg: "200px", xs: "20px" }
+      }}>
+      <Typography variant="h4" sx={{
+        mb: "33px"
+      }}>
         Watch{" "}
         <span style={{ color: "#FF2625", textTransform: "capitalize" }}>
           {name}
@@ -23,14 +29,13 @@ const ExerciseVideos = ({ exerciseVideos, name }: ExerciseVideosProps) => {
         Exercise Videos
       </Typography>
       <Stack
-        justifyContent="flex-start"
-        flexWrap="wrap"
-        alignItems="center"
         sx={{
+          justifyContent: "flex-start",
+          flexWrap: "wrap",
+          alignItems: "center",
           flexDirection: { lg: "row" },
-          gap: { lg: "10px", xs: "0" },
-        }}
-      >
+          gap: { lg: "10px", xs: "0" }
+        }}>
         {exerciseVideos.slice(0, noOfExercisesVideos).map((item, i) => (
           <a
             key={item.video?.videoId ?? i}
@@ -44,10 +49,14 @@ const ExerciseVideos = ({ exerciseVideos, name }: ExerciseVideosProps) => {
               alt={item.video?.title}
             />
             <Box>
-              <Typography variant="h5" color="#000">
+              <Typography variant="h5" sx={{
+                color: "#000"
+              }}>
                 {item.video?.title}
               </Typography>
-              <Typography variant="h6" color="#000">
+              <Typography variant="h6" sx={{
+                color: "#000"
+              }}>
                 {item.video?.channelName}
               </Typography>
             </Box>

@@ -51,31 +51,54 @@ const Exercises = ({ exercises, setExercises, bodyPart }: ExercisesProps) => {
 
   if (!currentExercise.length)
     return (
-      <Stack id="exercises" alignItems="center" justifyContent="center">
-        <Typography variant="h4" mb="60px" mt="60px">
+      <Stack
+        id="exercises"
+        sx={{
+          alignItems: "center",
+          justifyContent: "center"
+        }}>
+        <Typography
+          variant="h4"
+          sx={{
+            mb: "60px",
+            mt: "60px"
+          }}>
           No Results Found!
         </Typography>
       </Stack>
     );
 
   return (
-    <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
-      <Typography variant="h3" mb="46px">
+    <Box
+      id="exercises"
+      sx={{
+        mt: { xs: "50px", lg: "110px" },
+        p: "20px",
+      }}
+    >
+      <Typography variant="h3" sx={{
+        mb: "46px"
+      }}>
         Showing Results
       </Typography>
 
       <Stack
         direction="row"
-        sx={{ gap: { lg: "110px", xs: "50px" } }}
-        flexWrap="wrap"
-        justifyContent="center"
-      >
+        sx={{
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: { lg: "110px", xs: "50px" }
+        }}>
         {currentExercise.map((exercise) => (
           <ExerciseCard key={exercise.id} exercise={exercise} />
         ))}
       </Stack>
 
-      <Stack mt="100px" alignItems="center">
+      <Stack
+        sx={{
+          mt: "100px",
+          alignItems: "center"
+        }}>
         {exercises.length > 9 && (
           <Pagination
             color="standard"

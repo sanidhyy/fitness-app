@@ -45,14 +45,15 @@ const ExerciseCard = ({ exercise }: ExerciseCardProps) => {
       </Stack>
 
       <Typography
-        ml="21px"
-        color="#000"
-        fontWeight="bold"
-        mt="11px"
-        pb="10px"
-        textTransform="capitalize"
-        fontSize="20px"
-      >
+        sx={{
+          ml: "21px",
+          color: "#000",
+          fontWeight: "bold",
+          mt: "11px",
+          pb: "10px",
+          textTransform: "capitalize",
+          fontSize: "20px"
+        }}>
         {exercise.name}
       </Typography>
     </Link>

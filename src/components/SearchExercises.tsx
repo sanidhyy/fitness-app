@@ -62,18 +62,29 @@ const SearchExercises = ({
   };
 
   return (
-    <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
+    <Stack
+      sx={{
+        alignItems: "center",
+        mt: "37px",
+        justifyContent: "center",
+        p: "20px"
+      }}>
       <Typography
-        fontWeight={700}
-        sx={{ fontSize: { lg: "44px", xs: "30px" } }}
-        mb="50px"
-        textAlign="center"
-      >
+        sx={{
+          fontWeight: 700,
+          mb: "50px",
+          textAlign: "center",
+          fontSize: { lg: "44px", xs: "30px" }
+        }}>
         Awesome Exercises for You
         <br /> Should Know
       </Typography>
 
-      <Box position="relative" mb="72px">
+      <Box
+        sx={{
+          position: "relative",
+          mb: "72px"
+        }}>
         <TextField
           sx={{
             input: { fontWeight: "700", border: "none", borderRadius: "4px" },

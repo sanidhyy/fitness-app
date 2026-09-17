@@ -49,7 +49,9 @@ const HorizontalScrollbar = (props: HorizontalScrollbarProps) => (
       const itemId = typeof item === "string" ? item : item.id;
 
       return (
-        <Box key={itemId} itemID={itemId} title={itemId} m="0 40px">
+        <Box key={itemId} itemID={itemId} title={itemId} sx={{
+          m: "0 40px"
+        }}>
           {props.isBodyParts ? (
             <BodyPart
               item={item as string}

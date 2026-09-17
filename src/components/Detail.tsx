@@ -30,9 +30,12 @@ const Detail = ({ exerciseDetail }: DetailProps) => {
 
   return (
     <Stack
-      gap="60px"
-      sx={{ flexDirection: { lg: "row" }, p: "20px", alignItems: "center" }}
-    >
+      sx={{
+        gap: "60px",
+        flexDirection: { lg: "row" },
+        p: "20px",
+        alignItems: "center"
+      }}>
       <img
         src={getExerciseGifUrl(id)}
         alt={name}
@@ -40,7 +43,9 @@ const Detail = ({ exerciseDetail }: DetailProps) => {
         className="detail-image"
       />
       <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
-        <Typography variant="h3" textTransform="capitalize">
+        <Typography variant="h3" sx={{
+          textTransform: "capitalize"
+        }}>
           {name}
         </Typography>
         <Typography variant="h6">
@@ -56,7 +61,13 @@ const Detail = ({ exerciseDetail }: DetailProps) => {
         </Typography>
 
         {extraDetail.map((item) => (
-          <Stack key={item.name} direction="row" gap="24px" alignItems="center">
+          <Stack
+            key={item.name}
+            direction="row"
+            sx={{
+              gap: "24px",
+              alignItems: "center"
+            }}>
             <Button
               sx={{
                 background: "#FF2DB",
@@ -71,7 +82,9 @@ const Detail = ({ exerciseDetail }: DetailProps) => {
                 style={{ width: "50px", height: "50px" }}
               />
             </Button>
-            <Typography variant="h5" textTransform="capitalize">
+            <Typography variant="h5" sx={{
+              textTransform: "capitalize"
+            }}>
               {item.name}
             </Typography>
           </Stack>

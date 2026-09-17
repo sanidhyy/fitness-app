@@ -12,31 +12,31 @@ type BodyPartProps = {
 const BodyPart = ({ item, setBodyPart, bodyPart }: BodyPartProps) => {
   return (
     <Stack
-      alignItems="center"
-      justifyContent="center"
       className="bodyPart-card"
+      onClick={() => {
+        setBodyPart(item);
+        window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+      }}
       sx={{
+        alignItems: "center",
+        justifyContent: "center",
         borderTop: bodyPart === item ? "4px solid #FF2625" : "",
         backgroundColor: "#FFF",
         borderBottomLeftRadius: "20px",
         width: "270px",
         height: "280px",
         cursor: "pointer",
-        gap: "47px",
-      }}
-      onClick={() => {
-        setBodyPart(item);
-        window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
-      }}
-    >
+        gap: "47px"
+      }}>
       <img src={Icon} alt="dumbell" style={{ width: "40px", height: "40px" }} />
 
       <Typography
-        fontSize="24px"
-        fontWeight="bold"
-        color="#3A1212"
-        textTransform="capitalize"
-      >
+        sx={{
+          fontSize: "24px",
+          fontWeight: "bold",
+          color: "#3A1212",
+          textTransform: "capitalize"
+        }}>
         {item}
       </Typography>
     </Stack>
