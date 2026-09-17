@@ -19,7 +19,7 @@
 4. Contents of `.env`
 
 ```
-REACT_APP_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+VITE_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 5. Create a [Rapid API](rapidapi.com/hub/ "Rapid API") account.

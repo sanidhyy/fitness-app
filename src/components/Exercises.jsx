@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import { Box, Stack, Typography } from "@mui/material";
 
@@ -27,19 +27,13 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   // fetch exercises
   useEffect(() => {
     const fetchExercisesData = async () => {
-      let exercisesData = [];
-
-      if (bodyPart === "all") {
-        exercisesData = await fetchData(
-          exerciseListUrl("/exercises"),
-          exerciseOptions
-        );
-      } else {
-        exercisesData = await fetchData(
-          exerciseListUrl(`/exercises/bodyPart/${bodyPart}`),
-          exerciseOptions
-        );
-      }
+      const exercisesData =
+        bodyPart === "all"
+          ? await fetchData(exerciseListUrl("/exercises"), exerciseOptions)
+          : await fetchData(
+              exerciseListUrl(`/exercises/bodyPart/${bodyPart}`),
+              exerciseOptions
+            );
 
       setExercises(Array.isArray(exercisesData) ? exercisesData : []);
     };
