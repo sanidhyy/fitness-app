@@ -18,7 +18,7 @@
 3. Contents of `.env`
 
 ```
-VITE_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 4. Create a [Rapid API](https://rapidapi.com/hub/ "Rapid API") account.
@@ -26,17 +26,18 @@ VITE_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ![Copy API Key](https://user-images.githubusercontent.com/71302066/177490655-c1dddcdd-2ef7-431e-b760-3e54f52a65b1.png "Copy API Key")
 
-6. After enabling you can get your API Keys and paste them in `.env` file.
-7. You are ready to go :fire:
+6. After enabling you can get your API key and paste it in `.env`. Do **not** use a `VITE_` prefix — Netlify Functions keep `RAPID_API_KEY` on the server so it is not exposed to the browser.
+7. For production, set `RAPID_API_KEY` in the Netlify dashboard under **Site configuration → Environment variables**. If an old `VITE_RAPID_API_KEY` variable exists, delete it after deploying so it cannot leak into a client build.
+8. You are ready to go :fire:
 
-   _NOTE:_ Never share these Keys publicaly.
+   _NOTE:_ Never share these keys publicly.
 
 ## :pushpin: How to use this App?
 
 1. Clone this **repository** to your local computer.
 2. Open **terminal** in root directory.
 3. Type and Run `npm install` or `pnpm install`.
-4. Once packages are installed, you can start this app using `npm run dev` or `pnpm dev`
+4. Once packages are installed, start the app with `npm run dev` or `pnpm dev` (Netlify Dev, which runs Vite plus the API functions). Use `npm run dev:client` / `pnpm dev:client` only if you need the Vite app without functions.
 5. Now app is fully configured and you can start using this app :+1:
 
 ### :raising_hand: Need Help?
@@ -94,10 +95,14 @@ In the project directory, you can run:
 
 ### `npm run dev` / `pnpm dev`
 
-Runs the app in development mode with Vite.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app with Netlify Dev (Vite plus serverless functions).\
+Open the local URL printed in the terminal (typically [http://localhost:8888](http://localhost:8888)).
 
 The page will reload when you make changes.
+
+### `npm run dev:client` / `pnpm dev:client`
+
+Runs Vite only, without Netlify Functions. API routes under `/api` will not work.
 
 ### `npm run lint` / `pnpm lint`
 

@@ -3,7 +3,7 @@ import type { ChangeEvent, Dispatch, SetStateAction } from "react";
 import Pagination from "@mui/material/Pagination";
 import { Box, Stack, Typography } from "@mui/material";
 
-import { exerciseListUrl, exerciseOptions, fetchData } from "../utils/fetchData";
+import { exerciseListUrl, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
 import type { Exercise } from "../types/exercise";
 
@@ -34,13 +34,9 @@ const Exercises = ({ exercises, setExercises, bodyPart }: ExercisesProps) => {
     const fetchExercisesData = async () => {
       const exercisesData =
         bodyPart === "all"
-          ? await fetchData<Exercise[]>(
-              exerciseListUrl("/exercises"),
-              exerciseOptions
-            )
+          ? await fetchData<Exercise[]>(exerciseListUrl("/exercises"))
           : await fetchData<Exercise[]>(
-              exerciseListUrl(`/exercises/bodyPart/${bodyPart}`),
-              exerciseOptions
+              exerciseListUrl(`/exercises/bodyPart/${bodyPart}`)
             );
 
       setExercises(Array.isArray(exercisesData) ? exercisesData : []);

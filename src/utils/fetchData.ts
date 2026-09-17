@@ -1,51 +1,35 @@
-export const EXERCISE_DB_URL = "https://exercisedb.p.rapidapi.com";
+const API_BASE = "/api";
 
-const rapidApiKey = import.meta.env.VITE_RAPID_API_KEY ?? "";
-
-export const exerciseOptions: RequestInit = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": rapidApiKey,
-    "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-  },
-};
-
-export const youtubeOptions: RequestInit = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": rapidApiKey,
-    "X-RapidAPI-Host": "youtube-search-and-download.p.rapidapi.com",
-  },
-};
-
-export const exerciseListUrl = (path = "/exercises") => {
+export const exerciseUrl = (path: string, params: Record<string, string> = {}) => {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  const encodedPath = normalized
-    .split("/")
-    .map((segment) => encodeURIComponent(segment))
-    .join("/");
+  const search = new URLSearchParams({ path: normalized, ...params });
 
-  return `${EXERCISE_DB_URL}${encodedPath}?limit=0`;
+  return `${API_BASE}/exercises?${search.toString()}`;
+};
+
+export const exerciseListUrl = (path = "/exercises") =>
+  exerciseUrl(path, { limit: "0" });
+
+export const youtubeSearchUrl = (query: string) => {
+  const search = new URLSearchParams({ query });
+
+  return `${API_BASE}/youtube?${search.toString()}`;
 };
 
 export const getExerciseGifUrl = (id?: string, resolution = 180) => {
   if (!id) return "";
 
   const params = new URLSearchParams({
-    exerciseId: id,
+    id,
     resolution: String(resolution),
-    "rapidapi-key": rapidApiKey,
   });
 
-  return `${EXERCISE_DB_URL}/image?${params.toString()}`;
+  return `${API_BASE}/exercise-image?${params.toString()}`;
 };
 
-export const fetchData = async <T,>(
-  url: string,
-  options?: RequestInit
-): Promise<T> => {
+export const fetchData = async <T,>(url: string): Promise<T> => {
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(url);
     const data: unknown = await response.json();
 
     if (!response.ok) {

@@ -2,6 +2,29 @@
   command = "pnpm build"
   publish = "dist"
 
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  command = "vite"
+  targetPort = 3000
+  framework = "#custom"
+
+[[redirects]]
+  from = "/api/exercises"
+  to = "/.netlify/functions/exercises"
+  status = 200
+
+[[redirects]]
+  from = "/api/youtube"
+  to = "/.netlify/functions/youtube"
+  status = 200
+
+[[redirects]]
+  from = "/api/exercise-image"
+  to = "/.netlify/functions/exercise-image"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

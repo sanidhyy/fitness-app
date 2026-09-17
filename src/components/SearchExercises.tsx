@@ -2,12 +2,7 @@ import { useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 
-import {
-  EXERCISE_DB_URL,
-  exerciseListUrl,
-  exerciseOptions,
-  fetchData,
-} from "../utils/fetchData";
+import { exerciseListUrl, exerciseUrl, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 import type { Exercise } from "../types/exercise";
 
@@ -28,8 +23,7 @@ const SearchExercises = ({
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData<string[]>(
-        `${EXERCISE_DB_URL}/exercises/bodyPartList`,
-        exerciseOptions
+        exerciseUrl("/exercises/bodyPartList")
       );
 
       setBodyParts(["all", ...(Array.isArray(bodyPartsData) ? bodyPartsData : [])]);
@@ -41,8 +35,7 @@ const SearchExercises = ({
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData<Exercise[]>(
-        exerciseListUrl("/exercises"),
-        exerciseOptions
+        exerciseListUrl("/exercises")
       );
 
       const searchedExercises = Array.isArray(exercisesData)

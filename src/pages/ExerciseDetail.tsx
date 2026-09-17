@@ -3,11 +3,10 @@ import { useParams } from "react-router";
 import { Box } from "@mui/material";
 
 import {
-  EXERCISE_DB_URL,
   exerciseListUrl,
-  exerciseOptions,
+  exerciseUrl,
   fetchData,
-  youtubeOptions,
+  youtubeSearchUrl,
 } from "../utils/fetchData";
 import Detail from "../components/Detail";
 import ExerciseVideos from "../components/ExerciseVideos";
@@ -28,12 +27,8 @@ const ExerciseDetail = () => {
     const fetchExercisesData = async () => {
       if (!id) return;
 
-      const youtubeSearchUrl =
-        "https://youtube-search-and-download.p.rapidapi.com";
-
       const exerciseDetailData = await fetchData<Exercise>(
-        `${EXERCISE_DB_URL}/exercises/exercise/${id}`,
-        exerciseOptions
+        exerciseUrl(`/exercises/exercise/${id}`)
       );
 
       if (!exerciseDetailData?.name) {
@@ -44,14 +39,12 @@ const ExerciseDetail = () => {
       setExerciseDetail(exerciseDetailData);
 
       const exerciseVideosData = await fetchData<YoutubeSearchResponse>(
-        `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,
-        youtubeOptions
+        youtubeSearchUrl(exerciseDetailData.name)
       );
       setExerciseVideos(exerciseVideosData.contents ?? []);
 
       const targetMuscleExercisesData = await fetchData<Exercise[]>(
-        exerciseListUrl(`/exercises/target/${exerciseDetailData.target}`),
-        exerciseOptions
+        exerciseListUrl(`/exercises/target/${exerciseDetailData.target}`)
       );
       setTargetMuscleExercises(
         Array.isArray(targetMuscleExercisesData)
@@ -60,8 +53,7 @@ const ExerciseDetail = () => {
       );
 
       const equipmentExercisesData = await fetchData<Exercise[]>(
-        exerciseListUrl(`/exercises/equipment/${exerciseDetailData.equipment}`),
-        exerciseOptions
+        exerciseListUrl(`/exercises/equipment/${exerciseDetailData.equipment}`)
       );
       setEquipmentExercises(
         Array.isArray(equipmentExercisesData) ? equipmentExercisesData : []
