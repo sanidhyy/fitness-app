@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Button, Stack, Typography } from "@mui/material";
 
 import { getExerciseGifUrl } from "../utils/fetchData";
